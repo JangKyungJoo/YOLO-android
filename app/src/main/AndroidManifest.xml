@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="kr.co.triggers.yolo">
+
+    <permission
+        android:name="kr.co.triggers.yolo.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="kr.co.triggers.yolo.permission.C2D_MESSAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:name=".app.App">
+
+        <activity
+            android:name=".layer.login.LoginView">
+
+            <intent-filter>
+
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+
+            </intent-filter>
+
+        </activity>
+
+        <activity android:name=".layer.artist.ArtistView"/>
+        <activity android:name=".layer.enroll.EnrollView"/>
+        <activity android:name=".layer.entry.EntryView"/>
+
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:label="@string/app_name" />
+
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+
+            <intent-filter>
+
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="@string/facebook_login_protocol_scheme" />
+
+            </intent-filter>
+
+        </activity>
+
+
+        <receiver
+            android:name="com.google.android.gms.gcm.GcmReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+
+            <intent-filter>
+
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <category android:name="kr.co.triggers.yolo" />
+
+            </intent-filter>
+
+        </receiver>
+
+        <service
+            android:name=".component.service.YoloGcmListenerService"
+            android:exported="false" >
+
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+
+        </service>
+
+        <service
+            android:name=".component.service.YoloInstanceIDListenerService"
+            android:exported="false">
+
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID" />
+            </intent-filter>
+
+        </service>
+
+        <service
+            android:name=".component.service.YoloRegistrationService"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_application_id"/>
+
+    </application>
+
+</manifest>

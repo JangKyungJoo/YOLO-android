@@ -1,0 +1,38 @@
+{
+  "project_info": {
+    "project_number": "811598659697",
+    "project_id": "yolo-service"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:811598659697:android:a545a4b57b9bb3fc",
+        "android_client_info": {
+          "package_name": "kr.co.triggers.yolo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6nPUVdyAQg7tN7EBL355P9v2vdmM50cM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 2,
+          "analytics_property": {
+            "tracking_id": "UA-73494657-3"
+          }
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
